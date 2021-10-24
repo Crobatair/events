@@ -1,0 +1,16 @@
+{
+  "moduleResolution": "node",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/style/*": ["styles/*"]
+    }
+  },
+  "moduleDirectories": [
+    "node_modules",
+    "styles",
+    "components"
+  ],
+  "exclude": ["node_modules", ".next"]
+}
