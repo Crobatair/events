@@ -1,14 +1,16 @@
 import {API_URL} from "@/config/index";
-import {useRouter} from "next/router";
+
 import {useState} from "react";
+import {useRouter} from "next/router";
+import Image from "next/image";
 import Layout from "@/components/Layout";
+import { FaImage } from 'react-icons/fa'
+
 import { ToastContainer, toast } from 'react-toastify';
 
 import moment from "moment";
-
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "@/style/Form.module.css";
-
 
 export default function EditEventPage({evt}) {
 
@@ -22,6 +24,8 @@ export default function EditEventPage({evt}) {
     time: evt.time,
     description: evt.description
   });
+
+  const [ imagePreview, setImagePreview ] = useState(evt.image? evt.image.formats.thumbnail.url: null)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -135,6 +139,25 @@ export default function EditEventPage({evt}) {
           <input type='submit' value='Update Event' className='btn'/>
         </div>
       </form>
+      <h2>Event Image</h2>
+      {imagePreview? (
+        <Image
+          src={imagePreview}
+          height={100}
+          width={170}
+        />
+      ): (
+        <div>
+          <p>
+            No Image Uploaded
+          </p>
+        </div>
+      )}
+      <div >
+        <button className='btn-secondary'>
+          <FaImage /> Set Image
+        </button>
+      </div>
     </Layout>
   );
 }
