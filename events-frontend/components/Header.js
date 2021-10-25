@@ -20,7 +20,12 @@ export default function Header({}) {
       <Search/>
       <nav>
         <ul>
-          <Link href="/events"><a>Events</a></Link>
+          <li>
+            <Link href="/events"><a>Events</a></Link>
+          </li>
+          <li>
+            <Link href="/events/add"><a>Add Event</a></Link>
+          </li>
         </ul>
       </nav>
     </header>
