@@ -38,6 +38,15 @@ export const AuthProvider = ({children}) => {
   }
 
   const logout = async () => {
+    const res = await fetch(`${NEXT_URL}/api/logout`,{
+      method: 'POST'
+    })
+
+    if(res.ok){
+      setUser(null)
+      router.push('/')
+    }
+
 
   }
 
