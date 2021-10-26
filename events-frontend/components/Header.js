@@ -38,7 +38,7 @@ export default function Header({}) {
                 <Link href="/events/add"><a>Add Event</a></Link>
               </li>
               <li>
-                <button classMame='btn-secondary' onClick={()=>logout()}>
+                <button className='btn-secondary' onClick={()=>logout()}>
                   <FaSignOutAlt/> Logout
                 </button>
               </li>

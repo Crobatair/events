@@ -2,7 +2,7 @@
 import {API_URL} from "@/config/index";
 import Layout from "@/components/Layout";
 import {useRouter} from "next/router";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import { FaUser } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import Link from 'next/link';
@@ -17,6 +17,10 @@ export default function RegisterPage({}) {
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
   const { register, error } = useContext(AuthContext);
+  useEffect(() => {
+    error && toast.error(error)
+  })
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== passwordConfirm){
@@ -72,7 +76,7 @@ export default function RegisterPage({}) {
               onChange={(e)=>setPasswordConfirm(e.target.value)}
             />
           </div>
-          <input type="submit" value='Login' className='btn'/>
+          <input type="submit" value='Register' className='btn'/>
           <p>
             Already have an account? <Link href='/account/login'>Login</Link>
           </p>
