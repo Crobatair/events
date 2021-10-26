@@ -1,4 +1,4 @@
-// eslint-disable-next-line @next/next/no-document-import-in-page
+// pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
