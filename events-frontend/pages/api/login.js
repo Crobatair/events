@@ -1,7 +1,7 @@
 import {API_URL} from "@/config/index";
 import AuthContext from "@/context/AuthContext";
 import {useContext} from "react";
-
+import cookie from 'cookie'
 
 export default async (req, res) => {
   if(req.method === "POST"){
@@ -18,7 +18,17 @@ export default async (req, res) => {
 
     if (strapiRes.ok){
 
-      // @todo - Set a cookie
+      res.setHeader('Set-Cookie', cookie.serialize(
+        'token',
+        data.jwt,
+        {
+          httpOnly: true,
+          secure: process.env.NODE_ENV !== 'development',
+          maxAge: 60 * 60 * 24 * 7,
+          sameSite: 'strict',
+          path: '/'
+        }
+      ))
       res.status(200).json({ user: data.user })
 
     }else{
