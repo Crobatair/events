@@ -9,7 +9,7 @@ module.exports = {
     return [
       {
         // matching all API routes
-        source: "https://boiling-depths-53475.herokuapp.com/*",
+        source: "/api/*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
