@@ -1,9 +1,9 @@
-import {API_URL} from "@/config/index";
-import AuthContext from "@/context/AuthContext";
-import {useContext} from "react";
 import cookie from 'cookie'
 
 export default async (req, res) => {
+  if(req.method === 'OPTIONS'){
+    res.status(200).json({})
+  }
   if(req.method === "POST"){
     res.setHeader('Set-Cookie', cookie.serialize(
       'token',
