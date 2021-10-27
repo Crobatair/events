@@ -16,7 +16,7 @@ export default async (req, res) => {
         path: '/'
       }
     ))
-    res.status(200).json({message: 'sucess'})
+    res.status(200).json({message: 'success'})
   }else{
     res.setHeader('Allow', ['POST']);
     res.status(405).json({

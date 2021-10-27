@@ -1,7 +1,4 @@
-
-import {API_URL} from "@/config/index";
 import Layout from "@/components/Layout";
-import {useRouter} from "next/router";
 import {useContext, useEffect, useState} from "react";
 import { FaUser } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
@@ -17,7 +14,7 @@ export default function LoginPage({}) {
 
   useEffect(()=>{
     error && toast.error(error)
-  })
+  }, [error])
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -71,7 +71,6 @@ export const AuthProvider = ({children}) => {
       setUser(data.user)
     }else{
       setUser(null)
-      setError(data.message)
     }
   }
 
